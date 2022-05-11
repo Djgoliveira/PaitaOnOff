@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "PaitaOn",
+    "slug": "myapp",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icons.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+        "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.djgoliveira2410.myapp",
+      "versionCode": 34
+    },
+    "ios": {
+      "bundleIdentifier": "com.djgoliveira2410.myapp"
+    }
+  }
+}

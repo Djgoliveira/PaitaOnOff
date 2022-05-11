@@ -1,0 +1,13 @@
+<manifest xmlns:tools="http://schemas.android.com/tools">
+<!--uses-permission tools:node="remove" android:name="android.permission.ACCESS_FINE_LOCATION" /!-->
+<!--uses-permission tools:node="remove" android:name="android.permission.ACCESS_COARSE_LOCATION" /!-->
+<uses-permission tools:node="remove" android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+<uses-permission  android:name="android.permission.CAMERA" />
+      <application>
+        <!-- Sample AdMob app ID: ca-app-pub-5012831248823471/9387847387 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.ca-app-pub-5012831248823471/9387847387"
+            android:value="ca-app-pub-5012831248823471~1521977412"/>
+                  
+    </application>
+</manifest>

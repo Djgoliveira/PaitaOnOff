@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "PaitaOn",
+    "slug": "myapp",
+    "sdkVersion": "44.0.0",    
+    "privacy": "public",
+    "version": "10.0.1",
+    "owner":"djgoliveira2410",
+    "orientation": "portrait",
+    "icon": "./assets/icons.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000",
+      "versionName": "com.djgoliveira2410.myapp"    
+	
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+      "android": {
+        "config":{
+        "googleMobileAdsAppId": "ca-app-pub-5012831248823471/9387847387"
+        },
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",                
+        "backgroundColor": "#000000"
+      
+      },
+      "package": "com.djgoliveira2410.myapp", 
+      "permissions":["CAMERA"],     
+      "versionCode": 10
+      
+    }
+    
+  }
+}
