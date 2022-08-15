@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "PaitaOn",
-    "slug": "myapp",
-    "version": "2.0.0",
+    "slug": "myapexp",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icons.png",
     "splash": {
@@ -22,10 +22,12 @@
         "backgroundColor": "#000000"
       },
       "package": "com.djgoliveira2410.myapp",
-      "versionCode": 34
+      "permissions": ["CAMERA"],
+      "versionCode": 41
     },
     "ios": {
       "bundleIdentifier": "com.djgoliveira2410.myapp"
     }
   }
 }
+
