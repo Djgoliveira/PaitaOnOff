@@ -24,9 +24,11 @@
       "package": "com.djgoliveira2410.myapp",
       "permissions": ["CAMERA"],
       "versionCode": 42
+
     },
     "ios": {
       "bundleIdentifier": "com.djgoliveira2410.myapp"
     }
   }
 }
+
