@@ -1,27 +1,36 @@
-//import { StatusBar } from 'expo-status-bar';
-//import { NavigationContainer } from '@react-navigation/native';
+
 import React, { useEffect, useState } from 'react';
 import {ImageBackground, StyleSheet, 
   Text, View, TouchableOpacity, KeyboardAvoidingView,
-   Animated, Keyboard, LogBox, TextInput } from 'react-native';
+   Animated, Keyboard, LogBox, PermissionsAndroid} from 'react-native';
 import * as Animatable from 'react-native-animatable';
-//import { FontAwesome } from '@expo/vector-icons';
-//var [nome, setNome]= useState(`${nome}`) ;
-export var nome = (`${nome}`);
-
-//var nome = getGmail;
-
+//export var nome = (`${nome}`);
 
 export default function Home({ navigation }) 
 
 {
-  
+  const requestCameraPermission = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      {
+        title: "App Permissão de Câmera",
+        message: "O App precisa de acesso à câmera.",
+        buttonNeutral: "Pergunte-me depois",
+        buttonNegative: "Cancelar",
+        buttonPositive: "OK"
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      alert('Pai/Mãe agora você pode usar a Câmera') + navigation.navigate('Calcular');       
+    } else {
+      alert('Permissão de Câmera negada') + navigation.navigate('Principal');
+    }
+  };  
   
   const [offset] = useState(new Animated.ValueXY({x: 0, y: 95}));
   const [opacity] = useState(new Animated.Value(0));
   const [logo] = useState (new Animated.ValueXY({x: 190, y: 273}));
-  
-  
+    
   useEffect(() => {
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
 }, [])
@@ -102,6 +111,8 @@ keyboardVerticalOffset={90}>
     
 <View>
 
+
+
   <Animatable.View 
   delay={2000}
   animation= "fadeInUp" 
@@ -109,10 +120,13 @@ keyboardVerticalOffset={90}>
     <Text style={styles.h1}>Mostre aos seus amigos(a) que está <Text style={{color:'red'}}>ON</Text> ou <Text style={{color:'green'}}>OFF</Text>
     </Text>  
 
+    <View style={styles.container1}>
+            <TouchableOpacity title="Solicitar Permissões da Câmera" onPress={requestCameraPermission} color="#FF0000" />
+    </View>
+
       <TouchableOpacity 
       style={styles.button}    
-      onPress={() =>
-      window.alert(`Seja Bem vindo(a), agora informe seus gastos`) + navigation.navigate('Calcular')}>
+      onPress={requestCameraPermission}>
       <Text style={styles.buttonText}> Avançar</Text>
       </TouchableOpacity>
 
@@ -186,12 +200,12 @@ const styles = StyleSheet.create({
   button:{
     
     borderRadius: 20,
-    margin: 80,
+    margin: 30,
     position:'absolute',
     backgroundColor: '#41Aef4',
     padding: 10,
     alignSelf: 'center',
-    bottom:'1%',
+    bottom:'-5%',
             
   },
   button2:{
@@ -224,6 +238,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%', 
+  },
+  container1: {
+    flex: 1,
+    borderRadius: 20,
+        //justifyContent: "center",
+    padding: 10,
+    alignSelf:'center',
+    bottom:'6%' ,
+    margin: 1,
+    color: '#FF0000',
   }
   
 });

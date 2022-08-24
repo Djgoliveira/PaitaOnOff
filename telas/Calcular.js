@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet, TouchableOpacity,  
-  KeyboardAvoidingView, ImageBackground, TextInput, Platform } from 'react-native';
+  KeyboardAvoidingView, ImageBackground, TextInput, Platform, PermissionsAndroid } from 'react-native';
 import {nome} from './Home';
 
 export default function Calcular({navigation}) {  
+
+  const requestCameraPermission = async () => {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      {
+        title: "App Permissão de Câmera",
+        message: "O App precisa de acesso à câmera.",
+        buttonNeutral: "Pergunte-me depois",
+        buttonNegative: "Cancelar",
+        buttonPositive: "OK"
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      alert('Você pode usar a Câmera');
+    } else {
+      alert('Permissão de Câmera negada');
+    }
+};
+
   const nome1 = nome;
   const [conta1, setConta1] = useState('');
   const [conta2, setConta2] = useState('');

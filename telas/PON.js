@@ -11,13 +11,12 @@ import { captureScreen } from 'react-native-view-shot';
   
 
 
-export default function POFF({navigation}) { 
+export default function PON({navigation}) { 
 
   
-  //const [imageURI, setImageURI] = useState('');
-  //const [savedImagePath, setSavedImagePath] = useState('');
+
   const camRef = useRef(null);
-  const [hasPermission, setHasPermission] = useState(null);
+  //const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
   const [open, setOpen] = useState(false);
@@ -26,25 +25,7 @@ export default function POFF({navigation}) {
  // const saveTela = savePicture;
  
  
-  useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  
-    (async () => {
-    const { status } = await MediaLibrary.requestPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
-
-   if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>Sem Acesso á camera</Text>;
-  }
-    
+     
 //Função para tirar a foto
    async function takePicture(){
     if(camRef){
@@ -78,22 +59,7 @@ export default function POFF({navigation}) {
         console.log('err', error);
       })
   }
-  //Função para Salvar a foto no celular
-  /*
-    async function savePicture(){
-      const asset = await MediaLibrary.createAlbumAsync(capturedPhoto)
-      //onPress=>navigation.navigate('tela2')
-      .then(()=>{
-        alert('Imagem Salva com sucesso clique ');
-
-      })
-      .catch(error =>{
-        console.log('err', error);
-      })
-  }*/
-
-
-  //onPress={() =>navigation.navigate('PON')}> <Image source={certificado} style={{flex:1, justifyContent: 'center' }}/> 
+ 
   return (
     
     
@@ -144,7 +110,7 @@ export default function POFF({navigation}) {
        
        
  
-         <Image style={{ width: 180, height: 200, transform:[{rotate:'90deg'}], 
+         <Image style={{ width: 160, height: 180, transform:[{rotate:'90deg'}], 
          margin: 40, marginTop: 355 }}
        source={{uri:capturedPhoto}}/>
  

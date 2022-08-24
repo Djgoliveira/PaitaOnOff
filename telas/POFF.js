@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect , useRef,} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity,
-   Modal, Image, ImageBackground } from 'react-native';
+   Modal, Image, ImageBackground, PermissionsAndroid } from 'react-native';
 import { Camera } from 'expo-camera';
 import { FontAwesome } from '@expo/vector-icons';
 import * as MediaLibrary from 'expo-media-library';
@@ -10,35 +10,14 @@ import * as MediaLibrary from 'expo-media-library';
 
 export default function POFF({navigation}) { 
 
+
   //const [imageURI, setImageURI] = useState('');
   const camRef = useRef(null);
-  const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.back);
+  //const [hasPermission, setHasPermission] = useState(false);
+  const [type, setType] = useState(Camera.Constants.Type.front);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
   const [open, setOpen] = useState(false);
-  
-   
- // const saveTela = savePicture;
  
- 
-  useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  
-    (async () => {
-    const { status } = await MediaLibrary.requestPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
-
-   if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>Sem Acesso á camera</Text>;
-  }
     
 //Função para tirar a foto
 async function takePicture(){
@@ -109,12 +88,12 @@ async function takePicture(){
          margin: 40, marginTop: 355 }}
        source={{uri:capturedPhoto}}/>
  
- <TouchableOpacity style={{margin: 210, position:'absolute', width: 150, marginTop: 520}}
+ <TouchableOpacity style={{margin: 210, position:'absolute', width: 150, maxWidth: '100%' , marginTop: 520}}
   onPress={()=>navigation.navigate("Calcular",alert("Tente refazer o Cálculo para ficar ON ou Tire outra foto"))}> 
        
        <FontAwesome name="bullseye" size={20} color='red'/>
      </TouchableOpacity>
-     <TouchableOpacity style={{margin: 210, position:'absolute', width: 150, marginTop: 370}}
+     <TouchableOpacity style={{margin: 210, position:'absolute', width: 150,maxWidth: '100%' , marginTop: 370}}
      onPress={()=>navigation.navigate("Principal",alert("Não foi dessa vez que o(a) Pai/Mãe ficou ON, não fique triste, tente de novo!"))}> 
     
        
