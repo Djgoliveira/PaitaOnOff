@@ -23,7 +23,7 @@
       },
       "package": "com.djgoliveira2410.myapp",
       "permissions": ["CAMERA"],
-      "versionCode": 42
+      "versionCode": 43
 
     },
     "ios": {
