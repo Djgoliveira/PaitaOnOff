@@ -110,7 +110,7 @@ export default function PON({navigation}) {
        
        
  
-         <Image style={{ width: 160, height: 180, transform:[{rotate:'90deg'}], 
+         <Image style={{ width: 280, height: 180, transform:[{rotate:'90deg'}], 
          margin: 40, marginTop: 355 }}
        source={{uri:capturedPhoto}}/>
  

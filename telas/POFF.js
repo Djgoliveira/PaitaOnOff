@@ -84,7 +84,7 @@ async function takePicture(){
        
        
  
-         <Image style={{ width: 180, height: 200, transform:[{rotate:'90deg'}], 
+         <Image style={{ width: 280, height: 200, transform:[{rotate:'90deg'}], 
          margin: 40, marginTop: 355 }}
        source={{uri:capturedPhoto}}/>
  

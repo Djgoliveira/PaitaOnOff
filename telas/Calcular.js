@@ -23,7 +23,7 @@ export default function Calcular({navigation}) {
     }
 };
 
-  const nome1 = nome;
+  
   const [conta1, setConta1] = useState('');
   const [conta2, setConta2] = useState('');
   const [conta3, setConta3] = useState('');
